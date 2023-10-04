@@ -1,0 +1,33 @@
+---
+layout: example.njk
+pageCss: |
+  ::view-transition-image-pair(root) {
+    background: #000;
+  }
+  ::view-transition-old(root) {
+    animation: fade-out 0.5s ease-in;
+  }  
+  ::view-transition-new(root) {
+    animation: slide-in 0.5s ease-out;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      scale: 1;
+    }
+    to {
+      opacity: 0;
+      scale: 0.9;
+    }
+  }
+---

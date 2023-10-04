@@ -1,0 +1,35 @@
+---
+layout: example.njk
+pageCss: |
+  ::view-transition-image-pair(root) {
+    background: #000;
+  }
+  ::view-transition-old(root) {
+    animation: scale-out 0.5s ease-in;
+    z-index: 2;
+  }  
+  ::view-transition-new(root) {
+    animation: scale-in 0.5s ease-out;
+    z-index: 1;
+  }
+
+  @keyframes scale-in {
+    from {
+      scale: 0.5;
+    }
+    to {
+      scale: 1;
+    }
+  }
+
+  @keyframes scale-out {
+    from {
+      opacity: 1;
+      scale: 1;
+    }
+    to {
+      opacity: 0;
+      scale: 10;
+    }
+  }
+---

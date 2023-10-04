@@ -1,0 +1,28 @@
+---
+layout: example.njk
+pageCss: |
+  ::view-transition-old(root) {
+    animation: slide-out 0.5s ease-out;
+  }  
+  ::view-transition-new(root) {
+    animation: slide-in 0.5s ease-out;
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+---

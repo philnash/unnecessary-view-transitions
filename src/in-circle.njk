@@ -1,0 +1,26 @@
+---
+layout: example.njk
+pageCss: |
+  ::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    animation: circle-in-center 2.5s cubic-bezier(.25, 1, .30, 1) both;
+    z-index: 2;
+  }
+
+  @keyframes circle-in-center {
+    from {
+      clip-path: circle(0%);
+    }
+    to {
+      clip-path: circle(125%);
+    }
+  }
+---
+
+<div class="cards">
+  <p>Adapted from <a href="https://www.transition.style">Adam Argyle's transition.style</a>.</p>
+</div>

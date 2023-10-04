@@ -1,0 +1,41 @@
+---
+layout: example.njk
+pageCss: |
+  @property --wipe-position {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+
+  ::view-transition-old(root) {
+    --wipe-position: 100%;
+    --gradient-length: 20%;
+    -webkit-mask-image: linear-gradient(
+      to bottom right,
+      black var(--wipe-position),
+      transparent calc(var(--wipe-position) + var(--gradient-length)),
+      transparent
+    );
+    animation: wipe 1s;
+    z-index: 2;
+  }
+
+  ::view-transition-new(root) {
+    animation: none;
+    z-index: 1;
+  }
+
+
+  @keyframes wipe {
+    0% {
+      --wipe-position: 100%;
+    }
+    100% {
+      --wipe-position: calc(-1 * var(--gradient-length));
+    }
+  }
+---
+
+<div class="cards">
+  <p>Adapted from <a href="https://expensive.toys/blog/fancy-css-reveal-effects">Artur Bień's fancy reveal animations with CSS masks</a>.</p>
+</div>

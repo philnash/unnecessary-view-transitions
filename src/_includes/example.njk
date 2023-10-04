@@ -1,0 +1,25 @@
+---
+layout: layout.njk
+---
+
+{{ content | safe }}
+
+{% css %}
+body {
+  background: linear-gradient(220.55deg, #61C695 0%, #133114 100%);
+  background-attachment: fixed;
+}
+{{ pageCss | safe }}
+{% endcss %}
+
+<div class="css">
+  {% highlight "css" %}
+  {{ pageCss | safe }}
+  {% endhighlight %}
+</div>
+
+<div class="back">
+  <p>
+    <a href="/">Back to list</a>
+  </p>
+</div>

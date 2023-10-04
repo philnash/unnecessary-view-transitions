@@ -1,0 +1,41 @@
+---
+layout: example.njk
+pageCss: |
+  @property --segment-size {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  ::view-transition-old(root) {
+    --initial-segment-size: 100px;
+    --segment-size: var(--initial-segment-size);
+    -webkit-mask-image: repeating-linear-gradient(
+      to bottom,
+      #000000,
+      #000000 var(--segment-size),
+      transparent var(--segment-size),
+      transparent var(--initial-segment-size)
+    );
+    animation: blinds 1s;
+    z-index: 2;
+  }
+
+  ::view-transition-new(root) {
+    animation: none;
+    z-index: 1;
+  }
+
+  @keyframes blinds {
+    0% {
+      --segment-size: 100px;
+    }
+    100% {
+      --segment-size: 0px;
+    }
+  }
+---
+
+<div class="cards">
+  <p>Adapted from <a href="https://expensive.toys/blog/fancy-css-reveal-effects">Artur Bień's fancy reveal animations with CSS masks</a>.</p>
+</div>
